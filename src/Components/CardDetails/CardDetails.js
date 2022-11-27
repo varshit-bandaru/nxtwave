@@ -6,37 +6,27 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-  >
-    •
-  </Box>
-);
-function CardDetails() {
+import {Typographys,Subtitle,Linker,Description} from './CardDetailsStyles'
+
+function CardDetails({itemDetailer}) {
+  console.log(itemDetailer)
   return (
-    <Box sx={{ minWidth: 360 }}>
-     
+    <Box sx={{ minWidth: 360 }}>   
     <CardContent>
-    <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-      Word of the Day
-    </Typography>
-    <Typography variant="h5" component="div">
-      be{bull}nev{bull}o{bull}lent
-    </Typography>
-    <Typography sx={{ mb: 1.5 }} color="text.secondary">
-      adjective
-    </Typography>
-    <Typography variant="body2">
-      well meaning and kindly.
-      <br />
-      {'"a benevolent smile"'}
-    </Typography>
-  </CardContent>
-  <CardActions>
-    <Button size="small">Learn More</Button>
-  </CardActions>
+      <Grid container justifyContent="center" sx={{padding:"24px"}} >
+        <Grid item ls={3} md={3} lg={3} >
+          <div style={{width:"44px",height:"44px",border:"1px solid #D7DFE9",borderRadius:"4px",display:"flex",justifyContent:"center",alignItems:"center"}}><img style={{width:"24px",height:"20.39px"}} src={itemDetailer? itemDetailer.icon_url:""} /></div></Grid>
+        <Grid item  ls={9} md={9} lg={9}><Typographys>{itemDetailer && itemDetailer.title  }</Typographys>
+        <Subtitle> {itemDetailer && itemDetailer.category}</Subtitle></Grid>
+        <Grid item  ls={12} md={12} lg={12}>
+      
+        <Linker > <a href={itemDetailer && itemDetailer.link}>{itemDetailer && itemDetailer.link}</a></Linker>
+         
+          
+          <p><Description>{itemDetailer && itemDetailer.description}</Description> </p>
+        </Grid>
+      </Grid>
+    </CardContent>
   </Box>
   )
 }
