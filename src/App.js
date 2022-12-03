@@ -5,6 +5,7 @@ import Products from "./HOC/Products/Products";
 import { RecoilRoot } from "recoil";
 import SwitchTabs from "./Components/SwitchTabs/SwitchTabs";
 import React ,{useEffect} from 'react'
+import ItemTextFields from "./Components/ItemDetails/ItemTextFields";
 
 function App() {
   const [value, setValue] = React.useState(0);
@@ -28,9 +29,9 @@ function App() {
     <RecoilRoot>
     <div className="App">
       <Header ></Header>
-      <SwitchTabs handleChange={handleChange} value={value}></SwitchTabs>
-     { renderComponent()}
-      
+      {/* <SwitchTabs handleChange={handleChange} value={value}></SwitchTabs> */}
+     {/* { renderComponent()} */}
+      <ItemTextFields></ItemTextFields>
     </div>
     </RecoilRoot>
   );

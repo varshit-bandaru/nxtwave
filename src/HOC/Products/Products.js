@@ -60,7 +60,7 @@ function Products() {
         </Grid>
 
         {data.map((itemDetail, index) => (
-          <Grid item sx={{width:"360px",height:"192px",border:"1px solid",margin:"22px"}} >
+          <Grid item sx={{width:"360px",height:"192px",border:"1px solid #D7DFE9",margin:"22px"}} >
             <CardDetails itemDetailer={itemDetail} key={index}></CardDetails>
           </Grid>
         ))}
