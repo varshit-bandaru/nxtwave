@@ -9,6 +9,7 @@ import ItemTextFields from "./Components/ItemDetails/ItemTextFields";
 
 function App() {
   const [value, setValue] = React.useState(0);
+  const [addItemPage, setAddItemPage] = React.useState(false);
 
     const handleChange = (event, newValue) => {
         // alert(newValue)
@@ -28,10 +29,11 @@ function App() {
   return (
     <RecoilRoot>
     <div className="App">
-      <Header ></Header>
-      {/* <SwitchTabs handleChange={handleChange} value={value}></SwitchTabs> */}
-     {/* { renderComponent()} */}
-      <ItemTextFields></ItemTextFields>
+      <Header setAddItemPage={setAddItemPage} ></Header>
+      
+    { addItemPage ? <><ItemTextFields></ItemTextFields></> : <><SwitchTabs handleChange={handleChange} value={value}></SwitchTabs>
+     {renderComponent()}</>
+    }
     </div>
     </RecoilRoot>
   );

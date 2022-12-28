@@ -25,20 +25,18 @@ function Products() {
 
   return (
     <div>
-      <Grid
-        container
-        justifyContent="center"
-        
-        alignItems="center"
-        direction="row"
-      >
-        <Grid item xs={10} lg={10} md={10}>
+      <Grid container justifyContent="center" >
+        <Grid item xs={11} lg={11} md={11} >
+          
           <Paper
             component="form"
             sx={{
                 width:"648px",height:"40px",borderRadius:"3px",
               p: "2px 4px",
-            //   marginLeft:"24px",
+              // float:"left",
+              marginLeft:"35px",
+              marginTop:"32px",
+              marginBottom:"32px",
               display: "flex",
               alignItems: "center",
             
@@ -58,6 +56,15 @@ function Products() {
            
           </Paper>
         </Grid>
+        </Grid>
+      <Grid
+        container
+        justifyContent="center"
+        
+        alignItems="center"
+        direction="row"
+      >
+      
 
         {data.map((itemDetail, index) => (
           <Grid item sx={{width:"360px",height:"192px",border:"1px solid #D7DFE9",margin:"22px"}} >
