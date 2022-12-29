@@ -8,9 +8,15 @@ import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 
 import IconButton from "@mui/material/IconButton";
+import {
+  InputInSearch,
+  PaperStyles,
+  cardDetailsUpperGrid,
+} from "./ProductsStyles";
 
 function Products() {
   const [data, setData] = useRecoilState(dataItems);
+
   useEffect(() => {
     axios({
       method: "GET",
@@ -25,49 +31,26 @@ function Products() {
 
   return (
     <div>
-      <Grid container justifyContent="center" >
-        <Grid item xs={11} lg={11} md={11} >
-          
-          <Paper
-            component="form"
-            sx={{
-                width:"648px",height:"40px",borderRadius:"3px",
-              p: "2px 4px",
-              // float:"left",
-              marginLeft:"35px",
-              marginTop:"32px",
-              marginBottom:"32px",
-              display: "flex",
-              alignItems: "center",
-            
-            }}
-          >
-             <IconButton
+      <Grid container justifyContent="center">
+        <Grid item xs={11} lg={11} md={11}>
+          <Paper component="form" sx={PaperStyles}>
+            <IconButton
               type="button"
               sx={{ p: "10px" }}
               aria-label="search"
             ></IconButton>
-            <InputBase
-               sx={{
-                width:"648px",height:"40px",borderRadius:"3px",}}
-              placeholder="Search"
-            
-            />
-           
+            <InputBase sx={InputInSearch} placeholder="Search" />
           </Paper>
         </Grid>
-        </Grid>
+      </Grid>
       <Grid
         container
         justifyContent="center"
-        
         alignItems="center"
         direction="row"
       >
-      
-
         {data.map((itemDetail, index) => (
-          <Grid item sx={{width:"360px",height:"192px",border:"1px solid #D7DFE9",margin:"22px"}} >
+          <Grid item sx={cardDetailsUpperGrid}>
             <CardDetails itemDetailer={itemDetail} key={index}></CardDetails>
           </Grid>
         ))}
